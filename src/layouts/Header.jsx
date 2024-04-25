@@ -2,7 +2,9 @@ import { useEffect } from 'react';
 import { Accordion } from 'react-bootstrap';
 import { tony } from './utils';
 
-const Header = ({ headerColor, isTransparent }) => {
+const Header = () => {
+ const headerColor = 'white';
+const isTransparent = false;
     useEffect(() => {
         tony.stickyNav();
         tony.scrollToActiveNav();

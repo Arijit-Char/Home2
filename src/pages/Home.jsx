@@ -9,7 +9,9 @@ import Work from '../components/Work';
 import Blog from '../components/Blog';
 import Contact from '../components/Contact';
 import Testiminails from '../components/Testiminails';
-import Layout from '../layouts/Layout';
+// import Layout from '../layouts/Layout';
+import Header from '../layouts/Header';
+import Footer from '../layouts/Footer';
 
 function Home() {
     const [activeLink, setActiveLink] = useState('home');
@@ -64,56 +66,64 @@ function Home() {
     if (filteredAbout === undefined) {
         return <div className="w-full h-screen bg-black flex items-center justify-center text-center">Loading..</div>;
     }
+    console.log(filteredAbout);
 
     return (
         <>
-            <Layout>
-                {/* Home Banner */}
-                <section
-                    id="home"
-                    className="home-banner-02 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: 'url(static/img/home-banner-1.jpg)' }}
-                >
-                    <div className="container">
-                        <div className="row full-screen align-items-center p-100px-tb">
-                            <div className="col-12">
-                                <div className="ht-text text-center">
-                                    <h6>Hello There!</h6>
-                                    <h1>I'm Tony Smith</h1>
-                                    <div className="nav ht-list justify-content-center">
-                                        <span>Web Designer</span> <span>Web Developer</span> <span>UI/UX Designer</span>
+            <Fragment>
+                {/* <Header /> */}
+                <main>
+                    <section
+                        id="home"
+                        className="home-banner-02 bg-cover bg-center bg-no-repeat"
+                        style={{ backgroundImage: `url(${filteredAbout.avatar.url})` }}
+                    >
+                        <div className="container">
+                            <div className="row full-screen align-items-center p-100px-tb">
+                                <div className="col-12">
+                                    <div className="ht-text text-center">
+                                        <h6>Hello There!</h6>
+                                        <h1>I'm {filteredAbout.name}</h1>
+                                        <div className="nav ht-list justify-content-center">
+                                            <span>{filteredAbout.title}</span> <span>Web Developer</span> <span>UI/UX Designer</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="go-to go-to-next">
-                        <a href="#about">
-                            <span />
-                        </a>
-                    </div>
-                </section>
-                {/* End Home Banner */}
-                {/* about us */}
-                <About />
-                {/* end about us */}
-                {/* fun */}
-                <Skills />
-                {/* End fun */}
-                {/* resume */}
-                <Services />
-                {/* End resume */}
-                {/* Work */}
-                <Work />
-                {/* End work */}
-                {/* Testiminails */}
-                <Testiminails />
-                {/* End Testiminails */}
-                {/* Blog */}
-                <Blog />
-                {/* End Blog */}
-                <Contact />
-            </Layout>
+                        <div className="go-to go-to-next">
+                            <a href="#about">
+                                <span />
+                            </a>
+                        </div>
+                    </section>
+                    {/* End Home Banner */}
+                    {/* about us */}
+                    {/* End Home Banner */}
+                    {/* about us */}
+                    <About about={filteredAbout} social={filteredSocialHandles} />
+                    {/* end about us */}
+                    {/* fun */}
+                    <Skills skills={sortedFilteredSkills} />
+                    {/* End fun */}
+                    {/* resume */}
+                    <Services services={filteredServices} />
+                    {/* End resume */}
+                    {/* Work */}
+                    <Work work={sortedFilteredProject} about={filteredAbout} />
+                    {/* End work */}
+                    {/* Testimonials */}
+                    <Testiminails testimonials={filteredTestimonials} />
+
+                    {/* End Testimonials */}
+                    {/* Blog */}
+                    <Blog services={filteredServices} about={filteredAbout} />
+                    {/* End Blog */}
+                    <Contact about={filteredAbout} />
+                </main>
+                <Footer />
+            </Fragment>
+            {/* Home Banner */}
         </>
     );
 }
