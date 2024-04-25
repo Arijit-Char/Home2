@@ -3,9 +3,7 @@ import { Accordion } from 'react-bootstrap';
 import { tony } from './utils';
 import { Link } from 'react-scroll';
 
-const Header = ({about}) => {
-    const headerColor = 'white';
-    const isTransparent = false;
+const Header = ({ about, isTransparent, headerColor }) => {
     useEffect(() => {
         tony.stickyNav();
         tony.scrollToActiveNav();
