@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { Accordion } from 'react-bootstrap';
 import { tony } from './utils';
+import { Link } from 'react-scroll';
 
-const Header = () => {
- const headerColor = 'white';
-const isTransparent = false;
+const Header = ({about}) => {
+    const headerColor = 'white';
+    const isTransparent = false;
     useEffect(() => {
         tony.stickyNav();
         tony.scrollToActiveNav();
@@ -21,7 +22,7 @@ const isTransparent = false;
                     <div className="container">
                         {/* Brand */}
                         <a className="navbar-brand" href="index.html">
-                            Tony <span className="theme-bg" />
+                            {about.name} <span className="theme-bg" />
                         </a>
                         {/* / */}
                         {/* Mobile Toggle */}
@@ -35,34 +36,88 @@ const isTransparent = false;
                         <Accordion.Collapse eventKey="toggle" className="navbar-collapse justify-content-end" id="navbar-collapse-toggle">
                             <ul className="navbar-nav ml-auto nav-ul">
                                 <li>
-                                    <a className="nav-link active" href="#home">
+                                    <Link
+                                        className="nav-link active"
+                                        to="home"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         Home
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="#about">
+                                    <Link
+                                        className="nav-link"
+                                        to="about"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         About Us
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="#services">
+                                    <Link
+                                        className="nav-link"
+                                        to="services"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         services
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="#work">
+                                    <Link
+                                        className="nav-link"
+                                        to="work"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         Portfolio
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="#blog">
+                                    <Link
+                                        className="nav-link"
+                                        to="blog"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         Blog
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a className="nav-link" href="#contactus">
+                                    <Link
+                                        className="nav-link"
+                                        to="contactus"
+                                        spy={true}
+                                        smooth={true}
+                                        hashSpy={true}
+                                        offset={50}
+                                        duration={250}
+                                        delay={500}
+                                    >
                                         Contact
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </Accordion.Collapse>
