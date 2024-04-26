@@ -1,8 +1,4 @@
-import { FaFacebook } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa';
-import { FaInstagram } from 'react-icons/fa';
-
+import {Link} from 'react-scroll';
 const About = ({ about, social }) => {
     return (
         <section id="about" className="section gray-bg">
@@ -12,7 +8,7 @@ const About = ({ about, social }) => {
                         <div className="section-title">
                             <h3 className="dark-color text-uppercase">ABOUT ME</h3>
                             <p className="text-uppercase small">
-                                A {about.title} based in {about.address} <i className="fab fa-linkedin-in" />
+                                A {about.title} based in {about.address}
                             </p>
                         </div>
                     </div>
@@ -47,13 +43,10 @@ const About = ({ about, social }) => {
                             <div className="row about-list">
                                 <div className="col-md-6">
                                     <div className="media">
-                                        <label>Birthday</label>
-                                        <p>4th april 1991</p>
+                                        <label>Experience</label>
+                                        <p>{about.exp_year} Years</p>
                                     </div>
-                                    <div className="media">
-                                        <label>Age</label>
-                                        <p>22 Yr</p>
-                                    </div>
+                                   
                                     <div className="media">
                                         <label>Residence</label>
                                         <p>{about.address}</p>
@@ -72,20 +65,14 @@ const About = ({ about, social }) => {
                                         <label>Phone</label>
                                         <p>{about.phoneNumber}</p>
                                     </div>
-                                    <div className="media">
-                                        <label>Skype</label>
-                                        <p>skype.0404</p>
-                                    </div>
-                                    <div className="media">
-                                        <label>Freelance</label>
-                                        <p>Available</p>
-                                    </div>
+                                   
+                                 
                                 </div>
                             </div>
                             <div className="btn-bar">
-                                <a className="m-btn m-btn-theme" href="#work">
+                                <Link className="m-btn m-btn-theme" to="work">
                                     Download CV
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

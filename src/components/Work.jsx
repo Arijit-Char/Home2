@@ -53,11 +53,13 @@ const Work = ({ work, about }) => {
                             </div>
                         </div>
                     ))}
+            <div className="work1" style={{height:"0",width:"0"}}></div>
 
                     {/* grid item */}
                 </div>{' '}
                 {/* portfolio-content */}
             </div>
+
         </section>
     );
 };

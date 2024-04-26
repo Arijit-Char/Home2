@@ -173,8 +173,7 @@ const Contact = ({about}) => {
               <div className="media-body">
                 <h6 className="dark-color font-alt">Our Phone</h6>
                 <p>
-                  Office: {about.phoneNumber}
-                  <br />
+                 
                   Office: {about.phoneNumber}
                   <br />
                 </p>
@@ -187,8 +186,7 @@ const Contact = ({about}) => {
               <div className="media-body">
                 <h6 className="dark-color font-alt">Our Email</h6>
                 <p>
-                  {about.contactEmail}
-                  <br />
+
                   {about.contactEmail}
                 </p>
               </div>

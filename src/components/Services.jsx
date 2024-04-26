@@ -1,4 +1,4 @@
-const Services = ({ services }) => {
+const Services = ({ services,about }) => {
     return (
         <section id="services" className="section gray-bg">
             <div className="container">
@@ -6,7 +6,7 @@ const Services = ({ services }) => {
                     <div className="col-md-12">
                         <div className="section-title">
                             <h3 className="dark-color text-uppercase">My Services</h3>
-                            <p className="text-uppercase small">A Lead UX &amp; UI designer based in Canada</p>
+                            <p className="text-uppercase small">A {about.title} based in {about.address}</p>
                         </div>
                     </div>
                 </div>

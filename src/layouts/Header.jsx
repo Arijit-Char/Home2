@@ -1,19 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Accordion } from 'react-bootstrap';
 import { tony } from './utils';
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const Header = ({ about, isTransparent, headerColor }) => {
-    const [activeNav, setActiveNav] = useState('home'); // State to track active navigation link
+    const [activeLink, setActiveLink] = useState('home1');
 
     useEffect(() => {
         tony.stickyNav();
         tony.scrollToActiveNav();
     }, []);
 
-    const handleSetActive = (to) => {
-        setActiveNav(to); // Update active navigation link
-    };
+  
 
     return (
         <header>
@@ -41,90 +39,78 @@ const Header = ({ about, isTransparent, headerColor }) => {
                             <ul className="navbar-nav ml-auto nav-ul">
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'home' ? ' active' : ''}`}
-                                        to="home"
+                                        className={`nav-link ${activeLink === 'home1' ? 'active' : ''}`}
+                                        to="home1"
                                         spy={true}
                                         smooth={true}
-                                        hashSpy={true}
                                         offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                        duration={500}
+                                        onClick={() => setActiveLink('home1')}
                                     >
                                         Home
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'about' ? ' active' : ''}`}
-                                        to="about"
-                                        spy={true}
-                                        smooth={true}
-                                        hashSpy={true}
-                                        offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                         className={`nav-link ${activeLink === 'about' ? 'active' : ''}`}
+                                         to="about"
+                                         spy={true}
+                                         smooth={true}
+                                         offset={50}
+                                         duration={500}
+                                         onClick={() => setActiveLink('about')}
                                     >
                                         About Us
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'services' ? ' active' : ''}`}
+                                        className={`nav-link ${activeLink === 'services' ? 'active' : ''}`}
                                         to="services"
                                         spy={true}
                                         smooth={true}
-                                        hashSpy={true}
                                         offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                        duration={500}
+                                        onClick={() => setActiveLink('services')}
                                     >
                                         Services
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'work' ? ' active' : ''}`}
+                                        className={`nav-link ${activeLink === 'work' ? 'active' : ''}`}
                                         to="work"
                                         spy={true}
                                         smooth={true}
-                                        hashSpy={true}
                                         offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                        duration={500}
+                                        onClick={() => setActiveLink('work')}
                                     >
                                         Portfolio
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'blog' ? ' active' : ''}`}
-                                        to="blog"
-                                        spy={true}
-                                        smooth={true}
-                                        hashSpy={true}
-                                        offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                         className={`nav-link ${activeLink === 'blog' ? 'active' : ''}`}
+                                         to="blog"
+                                         spy={true}
+                                         smooth={true}
+                                         offset={50}
+                                         duration={500}
+                                         onClick={() => setActiveLink('blog')}
                                     >
                                         Blog
                                     </Link>
                                 </li>
                                 <li>
                                     <Link
-                                        className={`nav-link${activeNav === 'contactus' ? ' active' : ''}`}
-                                        to="contactus"
-                                        spy={true}
-                                        smooth={true}
-                                        hashSpy={true}
-                                        offset={50}
-                                        duration={250}
-                                        delay={500}
-                                        onSetActive={handleSetActive}
+                                          className={`nav-link ${activeLink === 'contact' ? 'active' : ''}`}
+                                          to="contactus"
+                                          spy={true}
+                                          smooth={true}
+                                          offset={50}
+                                          duration={500}
+                                          onClick={() => setActiveLink('contact')}
                                     >
                                         Contact
                                     </Link>

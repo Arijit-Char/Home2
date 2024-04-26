@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { sliderProps } from '../sliderProps';
 
-const Testiminails = ({ testimonials }) => {
+const Testiminails = ({ testimonials,about }) => {
     return (
         <section className="section gray-bg">
             <div className="container">
@@ -9,7 +9,7 @@ const Testiminails = ({ testimonials }) => {
                     <div className="col-md-12">
                         <div className="section-title">
                             <h3 className="dark-color text-uppercase">Testimonials</h3>
-                            <p className="text-uppercase small">A Lead UX &amp; UI designer based in Canada</p>
+                            <p className="text-uppercase small">A {about.title} based in {about.address}</p>
                         </div>
                     </div>
                 </div>

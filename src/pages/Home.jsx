@@ -73,6 +73,7 @@ function Home() {
         <>
             <Layout about={filteredAbout}>
                 {/* Home Banner */}
+                <div id="home1" style={{height:"0",width:"0"}}></div>
                 <section
                     id="home"
                     className="home-banner-02 bg-cover bg-center bg-no-repeat"
@@ -85,14 +86,14 @@ function Home() {
                                     <h6>Hello There!</h6>
                                     <h1>I'm {filteredAbout.name}</h1>
                                     <div className="nav ht-list justify-content-center">
-                                        <span>{filteredAbout.title}</span> <span>Web Developer</span> <span>UI/UX Designer</span>
+                                        <span>{filteredAbout.title}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="go-to go-to-next">
-                        <Link spy={true} smooth={true} hashSpy={true} offset={50} duration={500} delay={1000} to="about">
+                        <Link to="about">
                             <span />
                         </Link>
                     </div>
@@ -104,16 +105,16 @@ function Home() {
                 <About about={filteredAbout} social={filteredSocialHandles} />
                 {/* end about us */}
                 {/* fun */}
-                <Skills skills={sortedFilteredSkills} />
+                <Skills skills={sortedFilteredSkills} about={filteredAbout} />
                 {/* End fun */}
                 {/* resume */}
-                <Services services={filteredServices} />
+                <Services services={filteredServices} about={filteredAbout}/>
                 {/* End resume */}
                 {/* Work */}
                 <Work work={sortedFilteredProject} about={filteredAbout} />
                 {/* End work */}
                 {/* Testimonials */}
-                <Testiminails testimonials={filteredTestimonials} />
+                <Testiminails testimonials={filteredTestimonials}  about={filteredAbout} />
 
                 {/* End Testimonials */}
                 {/* Blog */}
