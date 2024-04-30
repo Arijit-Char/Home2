@@ -1,8 +1,8 @@
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 const About = ({ about, social }) => {
     return (
         <section id="about" className="section gray-bg">
-            <div className="container">
+            <div className="container" style={{ width: '80%' }}>
                 <div className="row sm-m-25px-b m-35px-b">
                     <div className="col-md-12">
                         <div className="section-title">
@@ -46,7 +46,7 @@ const About = ({ about, social }) => {
                                         <label>Experience</label>
                                         <p>{about.exp_year} Years</p>
                                     </div>
-                                   
+
                                     <div className="media">
                                         <label>Residence</label>
                                         <p>{about.address}</p>
@@ -65,8 +65,6 @@ const About = ({ about, social }) => {
                                         <label>Phone</label>
                                         <p>{about.phoneNumber}</p>
                                     </div>
-                                   
-                                 
                                 </div>
                             </div>
                             <div className="btn-bar">

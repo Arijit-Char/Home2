@@ -24,7 +24,13 @@ const Skills = ({ skills, about }) => {
                         {/* skill */}
                         {skills.map((skill, index) => (
                             <div className="skill-lt">
-                                <h6 className="dark-color">{skill.name}</h6>
+                                <h6 className="dark-color" style={{display:"flex",gap:"2px"}}>
+                                    <div>{skill.name}</div>
+                                    <div>
+                                        <img  style={{ width: '1.5vw' }} src={skill.image.url} alt="" />
+                                    </div>
+                                </h6>
+
                                 <div className="skill-bar">
                                     <div
                                         className="skill-bar-in theme-bg"

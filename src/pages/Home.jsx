@@ -73,7 +73,7 @@ function Home() {
         <>
             <Layout about={filteredAbout}>
                 {/* Home Banner */}
-                <div id="home1" style={{height:"0",width:"0"}}></div>
+                <div id="home1" style={{ height: '0', width: '0' }}></div>
                 <section
                     id="home"
                     className="home-banner-02 bg-cover bg-center bg-no-repeat"
@@ -108,13 +108,13 @@ function Home() {
                 <Skills skills={sortedFilteredSkills} about={filteredAbout} />
                 {/* End fun */}
                 {/* resume */}
-                <Services services={filteredServices} about={filteredAbout}/>
+                <Services services={filteredServices} about={filteredAbout} />
                 {/* End resume */}
                 {/* Work */}
                 <Work work={sortedFilteredProject} about={filteredAbout} />
                 {/* End work */}
                 {/* Testimonials */}
-                <Testiminails testimonials={filteredTestimonials}  about={filteredAbout} />
+                <Testiminails testimonials={filteredTestimonials} about={filteredAbout} />
 
                 {/* End Testimonials */}
                 {/* Blog */}
