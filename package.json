@@ -25,6 +25,7 @@
         "@fortawesome/fontawesome-svg-core": "^6.5.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
         "emailjs-com": "^3.2.0",
+        "framer-motion": "^11.1.7",
         "isotope-layout": "^3.0.6",
         "react": "^18.2.0",
         "react-bootstrap": "^1.6.1",

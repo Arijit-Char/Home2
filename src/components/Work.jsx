@@ -1,15 +1,16 @@
+import React, { useEffect, useRef, useState } from 'react';
 import Isotope from 'isotope-layout';
-import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import '../App.scss';
 
 const Work = ({ work, about }) => {
-    // Isotope
     const isotope = useRef();
-    const [filterKey, setFilterKey] = useState('*');
+    const [selectedProject, setSelectedProject] = useState(null);
+
     useEffect(() => {
         setTimeout(() => {
             isotope.current = new Isotope('.portfolio-content', {
                 itemSelector: '.grid-item',
-                //    layoutMode: "fitRows",
                 percentPosition: true,
                 masonry: {
                     columnWidth: '.grid-item',
@@ -21,8 +22,16 @@ const Work = ({ work, about }) => {
                 },
             });
         }, 1000);
-        //     return () => isotope.current.destroy();
     }, []);
+
+    const handleProjectClick = (project) => {
+        setSelectedProject(project);
+    };
+
+    const handleCloseModal = () => {
+        setSelectedProject(null);
+    };
+
     return (
         <section id="work" className="section">
             <div className="container">
@@ -31,7 +40,7 @@ const Work = ({ work, about }) => {
                         <div className="section-title">
                             <h3 className="dark-color text-uppercase">LATEST WORKS</h3>
                             <p className="text-uppercase small">
-                                A {about.title} based in {about.address}{' '}
+                                A {about.title} based in {about.address}
                             </p>
                         </div>
                     </div>
@@ -39,28 +48,65 @@ const Work = ({ work, about }) => {
             </div>
             <div className="container">
                 <div className="portfolio-content lightbox-gallery">
-                    {work.map((project) => (
-                        <div className="grid-item product branding">
-                            <div className="portfolio-box-01">
+                    {work.map((project, index) => (
+                        <div className="grid-item product branding" key={index}>
+                            <div className="portfolio-box-01" onClick={() => handleProjectClick(project)}>
                                 <div className="portfolio-img">
                                     <img src={project.image.url} alt="image" />
+                                    <motion.div
+                                        className="portfolio-hover"
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            gap: '1rem',
+                                        }}
+                                    >
+                                        <h5>{project.title}</h5>
+                                        <div className="project-links">
+                                            <a href={project.liveurl} target="_blank" rel="noopener noreferrer" style={{ margin: '1.5rem' }}>
+                                                <i className="fas fa-external-link-alt"></i>
+                                            </a>
+                                            <a href={project.githuburl} target="_blank" rel="noopener noreferrer" style={{ margin: '1.5rem' }}>
+                                                <i className="fab fa-github"></i>
+                                            </a>
+                                        </div>
+                                        <div className="more">
+                                            <button onClick={() => handleProjectClick(project)}>More Details...</button>
+                                        </div>
+                                    </motion.div>
                                 </div>
-                                <div className="portfolio-info">
-                                    <h5>{project.title}</h5>
-                                    <span>{project.description}</span>
-                                </div>
-                                <a className="link-overlay" href={project.liveurl} />
                             </div>
                         </div>
                     ))}
-            <div className="work1" style={{height:"0",width:"0"}}></div>
-
-                    {/* grid item */}
-                </div>{' '}
-                {/* portfolio-content */}
+                </div>
             </div>
 
+            {/* Modal */}
+            <AnimatePresence>
+                {selectedProject && (
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="modal">
+                        <motion.div initial={{ y: -50 }} animate={{ y: 0 }} exit={{ y: -50 }} className="modal-content">
+                            <span className="close" onClick={handleCloseModal}>
+                                &times;
+                            </span>
+                            <h2 style={{fontSize:"1.5rem",fontWeight:"600",padding:"0.75rem"}}>{selectedProject.title}</h2>
+                            <p>{selectedProject.description}</p>
+                            <div className="project-links">
+                                <a href={selectedProject.liveurl} target="_blank" rel="noopener noreferrer">
+                                    <i className="fas fa-external-link-alt"  style={{ margin: '1.5rem' }}></i>
+                                </a>
+                                <a href={selectedProject.githuburl} target="_blank" rel="noopener noreferrer">
+                                    <i className="fab fa-github"  style={{ margin: '1.5rem' }}></i>
+                                </a>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
+
 export default Work;

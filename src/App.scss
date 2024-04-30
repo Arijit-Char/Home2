@@ -7515,3 +7515,101 @@ h6 {
 }
 
 /*# sourceMappingURL=master.css.map */
+/* No changes needed */
+/* SCSS */
+
+.portfolio-box-01 {
+    position: relative;
+    overflow: hidden;
+    .portfolio-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s ease;
+
+        h5 {
+            color: #fff;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Adding some gap between project links */
+            margin-top: 1rem; /* Adjusting top margin */
+
+            a {
+                color: #fff;
+                font-size: 20px;
+                transition: transform 0.3s ease;
+
+                :hover {
+                    transform: scale(1.2);
+                    color: #f47bbc;
+                }
+            }
+        }
+    }
+
+    &:hover .portfolio-hover {
+        opacity: 1;
+    }
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  
+}
+
+.modal-content {
+    background-color: #f9f9f9; /* Light background color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    text-align: center; /* Centering content */
+    border: 10px solid #f47bbc;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+.more {
+    color: white;
+    button:hover {
+        color: #f47bbc;
+    }
+}
