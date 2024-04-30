@@ -7613,3 +7613,13 @@ h6 {
         color: #f47bbc;
     }
 }
+.socialicons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    a {
+        margin: 0 10px;
+    }
+}

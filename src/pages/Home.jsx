@@ -13,6 +13,7 @@ import Testiminails from '../components/Testiminails';
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import Layout from '../layouts/Layout';
+import { motion } from 'framer-motion';
 
 function Home() {
     const [activeLink, setActiveLink] = useState('home');
@@ -87,6 +88,24 @@ function Home() {
                                     <h1>I'm {filteredAbout.name}</h1>
                                     <div className="nav ht-list justify-content-center">
                                         <span>{filteredAbout.title}</span>
+                                    </div>
+                                    <div className="socialicons" style={{marginTop:"3rem"}}>
+                                        {filteredSocialHandles.map((social, index) => (
+                                            <motion.a
+                                                key={index}
+                                                href={social.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                whileHover={{ scale: 1.2 }}
+                                                transition={{ type: 'spring', stiffness: 300 }}
+                                            >
+                                                <motion.img
+                                                    src={social.image.url}
+                                                    alt={social.platform}
+                                                    style={{ width: '40px', height: '40px', margin: '0 5px' }}
+                                                />
+                                            </motion.a>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
